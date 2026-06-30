@@ -1,0 +1,16 @@
+phase,repeat,fold,global_fold,epoch,train_loss,valid_loss,early_stopping_enabled,early_stopping_patience,early_stopping_min_delta,restore_best_weights,best_epoch_so_far,best_valid_loss_so_far,early_stop_triggered
+final_refit,,,,1,0.6097235519492834,,False,30,0.0,True,,,False
+final_refit,,,,2,0.5764698020850841,,False,30,0.0,True,,,False
+final_refit,,,,3,0.5686517154494034,,False,30,0.0,True,,,False
+final_refit,,,,4,0.5631806266871698,,False,30,0.0,True,,,False
+final_refit,,,,5,0.5599443173499946,,False,30,0.0,True,,,False
+final_refit,,,,6,0.5560027755857722,,False,30,0.0,True,,,False
+final_refit,,,,7,0.5514501299416378,,False,30,0.0,True,,,False
+final_refit,,,,8,0.5477725124509183,,False,30,0.0,True,,,False
+final_refit,,,,9,0.5442680496535994,,False,30,0.0,True,,,False
+final_refit,,,,10,0.5421908717320045,,False,30,0.0,True,,,False
+final_refit,,,,11,0.5391870727814783,,False,30,0.0,True,,,False
+final_refit,,,,12,0.537136709573452,,False,30,0.0,True,,,False
+final_refit,,,,13,0.5355118697331313,,False,30,0.0,True,,,False
+final_refit,,,,14,0.5336863731010929,,False,30,0.0,True,,,False
+final_refit,,,,15,0.5316347528323392,,False,30,0.0,True,,,False
