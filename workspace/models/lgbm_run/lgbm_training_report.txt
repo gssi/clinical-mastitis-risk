@@ -1,0 +1,114 @@
+LGBM TRAINING REPORT
+
+Selected hyperparameters (CV candidate):
+- n_estimators: 183
+- learning_rate: 0.05
+- num_leaves: 15
+
+Final refit hyperparameters (saved model):
+- n_estimators: 179
+- learning_rate: 0.05
+- num_leaves: 15
+
+Leakage-safe feature count: 22
+Used features:
+- scs
+- milk
+- fat
+- protein
+- lactose
+- ec
+- age
+- months_since_calving
+- month_sin
+- month_cos
+- scs_t-1
+- scs_t-2
+- milk_t-1
+- milk_t-2
+- fat_t-1
+- fat_t-2
+- protein_t-1
+- protein_t-2
+- lactose_t-1
+- lactose_t-2
+- ec_t-1
+- ec_t-2
+
+Model-selection summary:
+- grid_search_enabled: False
+- grid_search_metric: mcc
+- best_cv_mcc: 0.409083
+
+Cross-validation summary (mean ± std):
+- accuracy: 0.694031 ± 0.005966
+- precision: 0.783775 ± 0.010569
+- recall: 0.536081 ± 0.010956
+- specificity: 0.851981 ± 0.009868
+- f1: 0.636594 ± 0.008329
+- mcc: 0.409083 ± 0.012531
+- pr_auc: 0.805035 ± 0.005134
+- roc_auc: 0.760721 ± 0.006001
+
+Loss summary across folds (mean ± std):
+- train_loss_last: 0.494991 ± 0.001301
+- valid_loss_last: 0.541506 ± 0.005098
+- train_loss_min: 0.494991 ± 0.001301
+- valid_loss_min: 0.541259 ± 0.005021
+- train_loss_at_best_valid: 0.499009 ± 0.005753
+- best_loss_iteration: 168.200000 ± 20.404248
+- n_loss_iterations: 183.000000 ± 0.000000
+
+Confusion matrix summary across folds (mean ± std):
+- TP: 1090.2800 ± 22.2458
+- TN: 1732.7600 ± 20.1562
+- FP: 301.0400 ± 20.0551
+- FN: 943.5200 ± 22.3143
+
+Runtime summary (seconds):
+- fit per fold: 5.5984 ± 1.2498
+- predict per fold: 0.0124 ± 0.0019
+- explain per fold: 17.3571 ± 1.0053
+- total per fold: 22.9680 ± 0.8851
+- final_fit_seconds: 6.0358
+- total_cv_fit_seconds: 139.9601
+- total_wall_clock_seconds: 830.6078
+
+Resource usage summary:
+- ram_avg_mb (process RSS, whole run): 404.0741
+- ram_peak_mb (process RSS, whole run): 521.0547
+- fold_rss_avg_mb: 400.0198 ± 4.2800
+- fold_rss_peak_mb: 400.6369 ± 2.4719
+- fold_rss_peak_mb_max: 402.1094
+- cpu_process_seconds: 908.6700
+- cpu_count_visible: 12
+
+Throughput summary:
+- train_rows_per_second: 4139.5293 ± 6555.6187
+- predict_rows_per_second: 333446.9669 ± 45925.4606
+- explainability_fraction_of_wall_clock: 0.5224
+
+Artifact sizes (MB):
+- model: 0.3035
+- cv_metrics: 0.0103
+- cv_split_distributions_csv: 0.0018
+- cv_split_distributions_txt: 0.0028
+- cv_loss_history_csv: 0.2089
+- cv_loss_summary_by_iteration_csv: 0.0158
+- cv_loss_summary_txt: 0.0002
+- cv_loss_curves_png: 0.0847
+- feature_ranking_csv: 0.0026
+- feature_ranking_txt: nan
+- training_report: nan
+- training_summary_json: nan
+- selected_params_json: 0.0001
+- final_refit_params_json: 0.0001
+- grid_search_results_csv: nan
+- shap_global_csv: 0.0024
+- shap_global_txt: 0.0027
+- shap_interaction_pairs_csv: 0.0018
+- shap_interaction_matrix_csv: 0.0102
+- shap_beeswarm_png: 0.2161
+- shap_bar_png: 0.1317
+- artifacts_total_size_mb: 0.9956
+- explainability_enabled: True

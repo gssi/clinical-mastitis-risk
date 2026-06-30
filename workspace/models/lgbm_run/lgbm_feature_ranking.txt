@@ -1,0 +1,28 @@
+LGBM FEATURE RANKING
+
+Total features: 22
+
+feature                                      perm_mean      perm_std     perm_norm  interaction_partners
+--------------------------------------------------------------------------------------------------------------------------------------------
+scs                                           0.129533      0.011189      1.000000  scs_t-1, scs_t-2, months_since_calving, age, ec
+scs_t-1                                       0.071789      0.008170      0.554218  scs, scs_t-2, age, months_since_calving, milk_t-1
+scs_t-2                                       0.065387      0.006139      0.504790  scs, scs_t-1, age, months_since_calving, month_sin
+months_since_calving                          0.030751      0.007396      0.237399  month_sin, month_cos, scs, milk, milk_t-1
+milk                                          0.018990      0.007403      0.146600  milk_t-2, months_since_calving, milk_t-1, scs, ec_t-2
+age                                           0.017691      0.006639      0.136579  ec_t-2, ec, scs, ec_t-1, months_since_calving
+milk_t-2                                      0.012369      0.006637      0.095492  milk, scs, scs_t-2, ec_t-2, scs_t-1
+month_sin                                     0.011405      0.005494      0.088048  months_since_calving, scs_t-2, protein_t-1, scs, scs_t-1
+month_cos                                     0.009282      0.004741      0.071656  months_since_calving, scs, month_sin, scs_t-1, ec_t-2
+ec_t-2                                        0.007136      0.005306      0.055093  age, ec, scs, milk, milk_t-2
+milk_t-1                                      0.005778      0.005629      0.044609  months_since_calving, milk, scs, scs_t-1, ec
+ec                                            0.004475      0.003878      0.034549  age, scs, ec_t-2, ec_t-1, milk_t-1
+ec_t-1                                        0.002228      0.003612      0.017202  age, ec, ec_t-2, scs, scs_t-1
+lactose                                       0.002160      0.003104      0.016672  ec, ec_t-2, age, scs_t-1, months_since_calving
+protein                                       0.001926      0.002784      0.014865  scs, milk_t-1, months_since_calving, scs_t-2, scs_t-1
+protein_t-1                                   0.001664      0.003922      0.012842  months_since_calving, month_sin, scs, scs_t-1, age
+fat_t-2                                       0.000630      0.003071      0.004867  fat, scs_t-2, age, months_since_calving, ec
+protein_t-2                                   0.000549      0.002398      0.004235  months_since_calving, scs_t-1, ec, scs, milk
+fat_t-1                                       0.000472      0.002385      0.003647  months_since_calving, scs, scs_t-1, ec_t-2, ec
+lactose_t-2                                   0.000468      0.002870      0.003615  age, ec_t-2, lactose_t-1, lactose, scs_t-1
+lactose_t-1                                  -0.000105      0.002474     -0.000811  scs_t-1, scs, lactose_t-2, protein_t-2, fat_t-2
+fat                                          -0.000326      0.003321     -0.002517  scs, milk_t-1, scs_t-1, months_since_calving, fat_t-2

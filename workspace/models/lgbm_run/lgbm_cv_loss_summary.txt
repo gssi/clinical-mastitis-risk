@@ -1,0 +1,10 @@
+LGBM CV LOSS SUMMARY
+
+- best_mean_valid_loss_iteration: 182
+- best_mean_valid_loss: 0.541482
+- mean_train_loss_at_best_valid: 0.495251
+
+Last available aggregated iteration:
+- last_iteration: 183
+- train_loss_mean: 0.494991
+- valid_loss_mean: 0.541506
