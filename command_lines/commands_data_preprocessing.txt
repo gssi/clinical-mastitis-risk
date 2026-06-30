@@ -1,0 +1,78 @@
+### PRE-PROCESSING AND DOMAIN INFORMED TRANSFORMATION ###
+
+PYTHONPATH=. python3 workflow/data_preprocessing/transformation.py \
+  --step pre_processing \
+  --input-path workspace2/data/db_modeling/shared/merged_dataset.parquet \
+  --output-path workspace2/data/db_modeling/shared/merged_preprocessed.parquet
+
+PYTHONPATH=. python3 workflow/data_preprocessing/transformation.py \
+  --step dit \
+  --input-path workspace2/data/db_modeling/shared/merged_preprocessed.parquet \
+  --output-path workspace2/data/db_modeling/shared/merged_transformed.parquet \
+  --season-mode both \
+  --lactation-mode both
+
+
+### IMPUTATION ###
+
+PYTHONPATH=. python3 workflow/data_preprocessing/imputation.py \
+  --mode fit_transform \
+  --input-path workspace2/data/db_modeling/shared/merged_transformed.parquet \
+  --output-path workspace2/data/db_modeling/shared/merged_imputed.parquet \
+  --model-path workspace2/artifacts/imputer.pkl \
+  --min-group-n 10 \
+  --write-report \
+  --report-path workspace2/logs/imputation_report.txt
+
+(x prediction)
+
+PYTHONPATH=. python3 workflow/data_preprocessing/imputation.py \
+  --mode transform \
+  --input-path workspace2/data/db_prediction/shared/merged_transformed.parquet \
+  --output-path workspace2/data/db_prediction/shared/merged_imputed.parquet \
+  --model-path workspace2/artifacts/imputer.pkl
+
+
+### TEMPORAL CONSTRUCTION ###
+
+PYTHONPATH=. python3 workflow/data_preprocessing/temporal_construction.py \
+  --input-path workspace2/data/db_modeling/shared/merged_imputed.parquet \
+  --output-path workspace2/data/db_modeling/shared/validated_anchors.parquet \
+  --anchor-schema-path workspace2/artifacts/validated_anchor_schema.json \
+  --anchor-meta-path workspace2/artifacts/validated_anchor_meta.json \
+  --lag-steps 1,2 \
+  --target-col disease \
+  --support-cols cf_date,disease,healthy,age,season,lactation_phase,months_since_calving,month_sin,month_cos \
+  --min-year 2020
+
+
+### TEMPORAL SAMPLING ###
+
+PYTHONPATH=. python3 workflow/data_preprocessing/temporal_sampling.py \
+  --input-path workspace2/data/db_modeling/shared/validated_anchors.parquet \
+  --output-path workspace2/data/db_modeling/shared/sampled_anchors.parquet \
+  --output-ids-path workspace2/artifacts/sampled_anchor_ids.parquet \
+  --report-path workspace2/logs/temporal_sampling_report.json \
+  --target-col disease \
+  --healthy-col healthy \
+  --positive-pattern 1,0,0 \
+  --negative-pattern 0,0,0 \
+  --class-ratio 1:1 \
+  --stratify-cols age,lactation_phase,season \
+  --random-state 42
+
+
+### COHERENCE CONSTRUCTION ###
+
+PYTHONPATH=. python3 workflow/data_preprocessing/coherence_construction.py \
+  --input-long-path workspace2/data/db_modeling/shared/merged_imputed.parquet \
+  --anchors-path workspace2/data/db_modeling/shared/sampled_anchors.parquet \
+  --output-path workspace2/data/db_modeling/shared/shared_final_anchors.parquet \
+  --output-ids-path workspace2/artifacts/shared_final_ids.parquet \
+  --report-path workspace2/logs/shared_final_anchor_report.json \
+  --lag-steps 1,2 \
+  --lag-variables scs,milk,fat,protein,lactose,ec \
+  --keep-variables age,months_since_calving,month_sin,month_cos \
+  --seq-len 3 \
+  --target-col disease \
+  --min-year 2020

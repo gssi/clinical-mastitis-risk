@@ -1,0 +1,34 @@
+### TENSOR CONSTRUCTION ###
+
+PYTHONPATH=. python3 workflow/dl_process/tensor_construction.py \
+  --input-long-path workspace/data/db_modeling/shared/merged_imputed.parquet \
+  --anchors-path workspace/data/db_modeling/shared/shared_final_anchors.parquet \
+  --ids-path workspace/artifacts/shared_final_ids.parquet \
+  --output-npz workspace/data/db_modeling/dl/dl_tensor.npz \
+  --output-support-path workspace/data/db_modeling/dl/dl_support.parquet \
+  --output-meta-path workspace/artifacts/dl_tensor_meta.json \
+  --output-longitudinal-schema workspace/artifacts/merged_long_schema.json \
+  --seq-len 3 \
+  --net rnn \
+  --require-target-in-anchors \
+  --min-year 2020
+
+
+### TRAINING DL ###
+
+PYTHONPATH=. python3 workflow/dl_process/training.py \
+  --input-npz workspace/data/db_modeling/dl/dl_tensor.npz \
+  --support-path workspace/data/db_modeling/dl/dl_support.parquet \
+  --param-path workspace/models/parameters/rnn_param.txt \
+  --net rnn \
+  --output-dir workspace/models/rnn_run \
+  --output-scaler workspace/models/rnn_run/rnn_scaler.pkl \
+  --id-col id \
+  --n-splits 5 \
+  --n-repeats 5 \
+  --random-state 42 \
+  --enable-grid-search \
+  --enable-early-stopping true \
+  --early-stopping-patience 30 \
+  --early-stopping-min-delta 0.0 \
+  --restore-best-weights true

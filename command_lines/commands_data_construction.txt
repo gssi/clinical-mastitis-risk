@@ -1,0 +1,77 @@
+### PROCESS FUNCTIONAL CHECK ###
+
+PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/functional_check_step.py \
+  --input-cf-csv workspace/data/database/cf/merged/cf.csv \
+  --output-parquet workspace/data/database/cf/processed/cf_agg.parquet \
+  --output-ids-parquet workspace/data/database/cf/processed/cf_ids.parquet \
+  --chunksize 100000
+
+### PROCESS LACTOSE ###
+
+PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/lactose_step.py \
+  --input-ltts-csv workspace/data/database/latt/merged/latt.csv \
+  --input-cf-ids workspace/data/database/cf/processed/cf_ids.parquet \
+  --output-parquet workspace/data/database/latt/processed/lct.parquet \
+  --chunksize 100000
+
+
+### PROCESS EC ###
+
+PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/ele_conductivity_step.py \
+  --input-ec-csv workspace/data/database/ce/merged/ce.csv \
+  --input-cf-ids workspace/data/database/cf/processed/cf_ids.parquet \
+  --output-parquet workspace/data/database/ce/processed/ce.parquet \
+  --chunksize 100000
+
+
+### PROCESS DISEASE ###
+
+PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/diseases_step.py \
+  --input-treatments-csv workspace/data/database/trattamenti/trattamenti.csv \
+  --input-coppie workspace/data/database/trattamenti/coppie.parquet \
+  --input-cf-ids workspace/data/database/cf/processed/cf_ids.parquet \
+  --output-parquet workspace/data/database/trattamenti/processed/trat_agg.parquet \
+  --output-coppie-parquet workspace/data/database/trattamenti/processed/coppie_trat.parquet \
+  --diagnosis MAMMARIE \
+  --chunksize 100000
+
+
+### PROCESS CALVING ###
+
+  PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/calving_step.py \
+  --input-calving-csv workspace/data/database/parti/merged/parti.csv \
+  --input-cf-ids workspace/data/database/cf/processed/cf_ids.parquet \
+  --output-parquet workspace/data/database/parti/processed/calv_agg.parquet \
+  --chunksize 100000
+  
+
+### PROCESS DEMOGRAPHIC DATA ###
+
+  PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/anagraphic_step.py \
+  --input-ana-csv workspace/data/database/anag/merged/anag.csv \
+  --input-cf-ids workspace/data/database/cf/processed/cf_ids.parquet \
+  --output-parquet workspace/data/database/anag/processed/ana_agg.parquet \
+  --chunksize 100000
+
+
+### MERGING DATA ###
+
+PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/dataset_builder.py \
+  --base workspace/data/database/cf/processed/cf_agg.parquet \
+  --join ltts=workspace/data/database/latt/processed/lct.parquet \
+  --keys ltts:id,day,month,year \
+  --how ltts:left \
+  --join ce=workspace/data/database/ce/processed/ce.parquet \
+  --keys ce:id,day,month,year \
+  --how ce:left \
+  --join parti=workspace/data/database/parti/processed/calv_agg.parquet \
+  --keys parti:id,month,year \
+  --how parti:outer \
+  --join coppie_trat=workspace/data/database/trattamenti/processed_with_agg/coppie_trat.parquet \
+  --keys coppie_trat:id,month,year \
+  --how coppie_trat:outer \
+  --join ana=workspace/data/database/anag/processed/ana_agg.parquet \
+  --keys ana:id \
+  --how ana:inner \
+  --drop-columns Marca,day_x,day_y,day,same_day_records \
+  --output-parquet workspace2/data/db_modeling/shared/merged_dataset.parquet
