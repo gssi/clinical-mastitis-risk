@@ -1,8 +1,8 @@
-# Temporal Modeling and Explainability for Clinical Mammary Pathology Risk Classification
+# Temporal modeling and explainability-based analysis for clinical mastitis risk in dairy cattle: A data-driven approach
 
 ## 1. Overview
 
-This repository implements a modular data-driven workflow for binary classification of clinical mammary pathology risk in dairy cattle, with a specific focus on temporal modeling and explainability-based analysis.
+This repository implements a modular data-driven workflow for binary classification of clinical mastitis risk in dairy cattle, with a specific focus on temporal modeling and explainability-based analysis.
 The workflow supports both end-to-end experimentation and selective execution of individual components:
 
 - Multi-source data integration
@@ -10,13 +10,12 @@ The workflow supports both end-to-end experimentation and selective execution of
 - Hierarchical missing-data imputation
 - Temporal anchor construction
 - Temporal sampling for balanced experimental datasets
-- Coherence construction for controlled cross-paradigm comparison
-- Machine Learning (ML) modeling with lagged tabular representations
-- Explainability-driven feature analysis
-- Deep Learning (DL) modeling with sequential tensor representations
-- Cross-paradigm feature transferability analysis
+- Coherence construction for controlled cross-technique comparison
+- Machine Learning (ML) modeling with lagged tabular representation
+- Explainability analysis with ML
+- Deep Learning (DL) modeling with sequential tensor representation
 
-The implementation reflects the methodology described in the accompanying paper and supports reproducible experimentation through explicit command-line interfaces and environment configuration.
+The implementation reflects the methodology described in the accompanying paper and supports reproducible experimentation through explicit command-line interface and environment configuration.
 
 ---
 
@@ -27,7 +26,7 @@ The repository is organized as a modular pipeline, where each component correspo
 ```text
 clinical_risk_classification/
 │
-├── command_lines/                                      # Command lines for running the workflow
+├── command_lines/                                      # Command lines for running the workflow. They must be adapted to the workspace of the user.
 │   ├── commands_data_construction.txt                  # Commands for processing raw source tables and building the merged dataset
 │   ├── commands_data_preprocessing.txt                 # Commands for transformation, imputation, temporal construction, sampling, and coherence construction
 │   ├── commands_ml.txt                                 # Commands for ML lagged-tabular construction and training
