@@ -128,8 +128,8 @@ Use the full pipeline to ensure that both models are trained and evaluated on th
 4. Temporal construction → `command_lines/commands_data_preprocessing.txt`
 5. Temporal sampling → `command_lines/commands_data_preprocessing.txt`
 6. Coherence construction → `command_lines/commands_data_preprocessing.txt`
-7.A ML branch → `command_lines/commands_ml.txt`
-7.B DL branch → `command_lines/commands_dl.txt`
+7. ML branch → `command_lines/commands_ml.txt`
+8. DL branch → `command_lines/commands_dl.txt`
 
 
 
