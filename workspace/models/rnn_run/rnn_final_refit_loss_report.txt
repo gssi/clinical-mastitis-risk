@@ -1,0 +1,10 @@
+RNN FINAL REFIT LOSS REPORT
+
+- rows: 26
+- max_epoch: 26
+- early_stopping_triggered: False
+- early_stopping_patience: 30
+- early_stopping_min_delta: 0.000000
+- restore_best_weights: True
+- overall_train_loss_last: 0.532147
+- overall_train_loss_min: 0.532147

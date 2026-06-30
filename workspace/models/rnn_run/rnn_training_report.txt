@@ -1,0 +1,88 @@
+RNN TRAINING REPORT
+
+Input tensor: workspace/data/db_modeling/dl/dl_tensor.npz
+Support table: workspace/data/db_modeling/dl/dl_support.parquet
+
+Selected hyperparameters (CV candidate):
+- early_stopping_min_delta: 0.0
+- early_stopping_patience: 30
+- enable_early_stopping: True
+- epochs: 29
+- hidden_size: 32
+- learning_rate: 0.001
+- restore_best_weights: True
+
+Final refit hyperparameters (saved model):
+- early_stopping_min_delta: 0.0
+- early_stopping_patience: 30
+- enable_early_stopping: False
+- epochs: 26
+- hidden_size: 32
+- learning_rate: 0.001
+- restore_best_weights: True
+- final_refit_epoch_source: median_cv_best_loss_epoch
+- cv_early_stopping_enabled: True
+- cv_early_stopping_triggered: False
+- cv_original_epochs: 29
+- cv_restore_best_weights: True
+- cv_early_stopping_patience: 30
+- cv_early_stopping_min_delta: 0.0
+
+Feature count: 10
+Features:
+- scs
+- milk
+- fat
+- protein
+- lactose
+- ec
+- age
+- months_since_calving
+- month_sin
+- month_cos
+
+Model-selection summary:
+- grid_search_enabled: True
+- grid_search_metric: mcc
+- best_cv_mcc: 0.404207
+- scaling_enabled: True
+- scaler_type: StandardScaler
+- scaler_path: workspace/models/rnn_run/rnn_scaler.pkl
+
+Cross-validation summary (mean ± std):
+- accuracy: 0.695929 ± 0.005899
+- precision: 0.760311 ± 0.014986
+- recall: 0.573153 ± 0.019398
+- specificity: 0.818702 ± 0.020109
+- f1: 0.653229 ± 0.009662
+- mcc: 0.404579 ± 0.012893
+- pr_auc: 0.803479 ± 0.005584
+- roc_auc: 0.759781 ± 0.006153
+
+Loss summary across folds (mean ± std):
+- train_loss_last: 0.530806 ± 0.002208
+- valid_loss_last: 0.554397 ± 0.006671
+- train_loss_min: 0.530783 ± 0.002178
+- valid_loss_min: 0.552138 ± 0.005703
+- best_loss_epoch: 25.360000 ± 3.080584
+- early_stopping_fraction: 0.000000
+
+Confusion matrix summary across folds (mean ± std):
+- TP: 1165.6800 ± 39.4691
+- TN: 1665.0800 ± 41.0385
+- FP: 368.7200 ± 40.8611
+- FN: 868.1200 ± 39.4433
+
+Runtime summary (seconds):
+- fit_seconds per fold: 18.5045 ± 1.3733
+- epochs_used per fold: 29.0000 ± 0.0000
+- total_cv_fit_seconds: 462.6121
+- final_refit_seconds: 19.6015
+- total_wall_clock_seconds: 981.4720
+
+RAM summary (MB):
+- ram_mb_mean_fold: 677.0240 ± 0.2149
+- ram_mb_std_within_fold: 0.0244 ± 0.0997
+- ram_mb_max_fold: 677.0562 ± 0.0800
+- final_refit_ram_mb_mean: 679.0898
+- final_refit_ram_mb_max: 679.0898

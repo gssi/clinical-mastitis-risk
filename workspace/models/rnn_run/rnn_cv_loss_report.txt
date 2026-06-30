@@ -1,0 +1,12 @@
+RNN CV LOSS REPORT
+
+- rows: 725
+- max_epoch: 29
+- early_stopping_triggered: False
+- early_stopping_patience: 30
+- early_stopping_min_delta: 0.000000
+- restore_best_weights: True
+- overall_train_loss_last: 0.530511
+- overall_train_loss_min: 0.528096
+- overall_valid_loss_last: 0.548968
+- overall_valid_loss_min: 0.540866
