@@ -1,0 +1,21 @@
+name: mastitis-framework
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - pyarrow
+  - scikit-learn
+  - xgboost
+  - lightgbm
+  - catboost
+  - shap
+  - joblib
+  - psutil
+  - matplotlib
+  - scipy
+  - pip:
+      - --index-url https://download.pytorch.org/whl/cpu
+      - torch
