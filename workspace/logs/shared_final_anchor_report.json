@@ -1,0 +1,80 @@
+{
+  "source_anchor_set": "sampled_anchors.parquet",
+  "input_anchor_rows": 20338,
+  "ml_eligible_rows": 20338,
+  "dl_eligible_rows": 20338,
+  "shared_final_rows": 20338,
+  "shared_unique_ids": 18932,
+  "duplicate_rows_detected": 174606,
+  "duplicate_keys_detected": 87303,
+  "deduplicated_rows_kept": 17601901,
+  "positive_rows": 10169,
+  "negative_rows": 10169,
+  "step": "shared_final_anchor_builder",
+  "input_long_path": "workspace/data/db_modeling/shared/merged_imputed.parquet",
+  "anchors_path": "workspace/data/db_modeling/shared/sampled_anchors.parquet",
+  "output_path": "workspace/data/db_modeling/shared/shared_final_anchors.parquet",
+  "output_ids_path": "workspace/artifacts/shared_final_ids.parquet",
+  "lag_steps": [
+    1,
+    2
+  ],
+  "seq_len": 3,
+  "lag_variables_requested": [
+    "scs",
+    "milk",
+    "fat",
+    "protein",
+    "lactose",
+    "ec"
+  ],
+  "lag_variables_used": [
+    "scs",
+    "milk",
+    "fat",
+    "protein",
+    "lactose",
+    "ec"
+  ],
+  "keep_variables_requested": [
+    "age",
+    "months_since_calving",
+    "month_sin",
+    "month_cos"
+  ],
+  "keep_variables_used": [
+    "age",
+    "months_since_calving",
+    "month_sin",
+    "month_cos"
+  ],
+  "ohe_features_requested": [],
+  "dl_feature_columns": [
+    "scs",
+    "milk",
+    "fat",
+    "protein",
+    "lactose",
+    "ec",
+    "age",
+    "months_since_calving",
+    "month_sin",
+    "month_cos"
+  ],
+  "feature_coherence_policy": "dl_feature_columns == lag_variables_requested + keep_variables_requested",
+  "support_columns_saved": [
+    "disease",
+    "healthy",
+    "__month_idx",
+    "disease_t-1",
+    "disease_t-2",
+    "cf_date",
+    "age",
+    "season",
+    "lactation_phase",
+    "months_since_calving",
+    "month_sin",
+    "month_cos"
+  ],
+  "min_year": 2020
+}
