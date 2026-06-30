@@ -1,0 +1,41 @@
+{
+  "id_column": "id",
+  "time_columns": [
+    "year",
+    "month"
+  ],
+  "target_column": "disease",
+  "month_index_column": "__month_idx",
+  "target_history_columns": [
+    "disease_t-1",
+    "disease_t-2"
+  ],
+  "support_columns": [
+    "cf_date",
+    "disease",
+    "healthy",
+    "age",
+    "season",
+    "lactation_phase",
+    "months_since_calving",
+    "month_sin",
+    "month_cos"
+  ],
+  "anchor_columns": [
+    "id",
+    "year",
+    "month",
+    "__month_idx",
+    "disease",
+    "disease_t-1",
+    "disease_t-2",
+    "cf_date",
+    "healthy",
+    "age",
+    "season",
+    "lactation_phase",
+    "months_since_calving",
+    "month_sin",
+    "month_cos"
+  ]
+}

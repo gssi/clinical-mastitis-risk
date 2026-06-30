@@ -1,0 +1,70 @@
+{
+  "id_column": "id",
+  "time_columns": [
+    "year",
+    "month"
+  ],
+  "target_column": "disease",
+  "lag_steps": [
+    1,
+    2
+  ],
+  "lag_variables": [
+    "scs",
+    "milk",
+    "fat",
+    "protein",
+    "lactose",
+    "ec"
+  ],
+  "keep_variables": [
+    "age",
+    "months_since_calving",
+    "month_sin",
+    "month_cos"
+  ],
+  "ohe_features_requested": [],
+  "ohe_features_in_feature_schema": [],
+  "lagged_feature_columns": [
+    "scs_t-1",
+    "scs_t-2",
+    "milk_t-1",
+    "milk_t-2",
+    "fat_t-1",
+    "fat_t-2",
+    "protein_t-1",
+    "protein_t-2",
+    "lactose_t-1",
+    "lactose_t-2",
+    "ec_t-1",
+    "ec_t-2"
+  ],
+  "target_lag_columns": [
+    "disease_t-1",
+    "disease_t-2"
+  ],
+  "wide_feature_columns": [
+    "scs",
+    "milk",
+    "fat",
+    "protein",
+    "lactose",
+    "ec",
+    "age",
+    "months_since_calving",
+    "month_sin",
+    "month_cos",
+    "scs_t-1",
+    "scs_t-2",
+    "milk_t-1",
+    "milk_t-2",
+    "fat_t-1",
+    "fat_t-2",
+    "protein_t-1",
+    "protein_t-2",
+    "lactose_t-1",
+    "lactose_t-2",
+    "ec_t-1",
+    "ec_t-2"
+  ]
+}
