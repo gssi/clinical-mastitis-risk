@@ -26,7 +26,7 @@ The repository is organized as a modular pipeline, where each component correspo
 ```text
 clinical_risk_classification/
 │
-├── command_lines/                                      # Command lines for running the workflow. They must be adapted to the workspace of the user.
+├── command_lines/                                      # Command lines for running the workflow. NOTE: They must be adapted to the workspace and/or to the goal of the user.
 │   ├── commands_data_construction.txt                  # Commands for processing raw source tables and building the merged dataset
 │   ├── commands_data_preprocessing.txt                 # Commands for transformation, imputation, temporal construction, sampling, and coherence construction
 │   ├── commands_ml.txt                                 # Commands for ML lagged-tabular construction and training
