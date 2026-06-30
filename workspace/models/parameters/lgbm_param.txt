@@ -1,0 +1,7 @@
+# LightGBM parameters 
+
+n_estimators = 183
+learning_rate = 0.05
+num_leaves = 15
+
+

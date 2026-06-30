@@ -1,0 +1,5 @@
+# RNN parameters
+
+epochs = 29
+hidden_size = 32
+learning_rate = 0.001
