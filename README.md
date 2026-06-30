@@ -120,7 +120,7 @@ PYTHONPATH=. python3 <script_path> [arguments]
 
 ### Execution for controlled comparison between ML and DL
 
-Use the full pipeline to ensure that both models are trained and evaluated on the same subject–time instances.
+The full pipeline is executed to ensure that both models are trained and evaluated on the same subject–time instances. 
 
 1. Data construction → `command_lines/commands_data_construction.txt`
 2. Transformation → `command_lines/commands_data_preprocessing.txt`
@@ -130,6 +130,8 @@ Use the full pipeline to ensure that both models are trained and evaluated on th
 6. Coherence construction → `command_lines/commands_data_preprocessing.txt`
 7. ML branch → `command_lines/commands_ml.txt`
 8. DL branch → `command_lines/commands_dl.txt`
+
+In the workspace, temporal representations for both ML and DL are provided. The user could use them directly for ML and/or DL branch.
 
 
 
