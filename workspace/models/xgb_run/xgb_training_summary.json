@@ -1,0 +1,369 @@
+{
+  "model": "xgb",
+  "input_path": "workspace/data/db_modeling/ml/lagged.parquet",
+  "schema_path": "workspace/artifacts/lagged_schema.json",
+  "ids_path": "workspace/artifacts/shared_final_ids.parquet",
+  "n_rows": 20338,
+  "n_features": 22,
+  "features_used": [
+    "scs",
+    "milk",
+    "fat",
+    "protein",
+    "lactose",
+    "ec",
+    "age",
+    "months_since_calving",
+    "month_sin",
+    "month_cos",
+    "scs_t-1",
+    "scs_t-2",
+    "milk_t-1",
+    "milk_t-2",
+    "fat_t-1",
+    "fat_t-2",
+    "protein_t-1",
+    "protein_t-2",
+    "lactose_t-1",
+    "lactose_t-2",
+    "ec_t-1",
+    "ec_t-2"
+  ],
+  "n_groups": 18932,
+  "n_splits": 5,
+  "n_repeats": 5,
+  "hyperparameters": {
+    "selected_cv_params": {
+      "n_estimators": 223,
+      "learning_rate": 0.07,
+      "max_depth": 4
+    },
+    "final_refit_params": {
+      "n_estimators": 212,
+      "learning_rate": 0.07,
+      "max_depth": 4
+    }
+  },
+  "enable_explainability": true,
+  "enable_class_weight": false,
+  "class_weight_positive": 1.0,
+  "grid_search": {
+    "enabled": false,
+    "metric": "mcc",
+    "max_combinations": 64,
+    "best_score": 0.409173418102597,
+    "n_candidates": 1,
+    "results_csv": null
+  },
+  "early_stopping": {
+    "enabled": false,
+    "rounds": null,
+    "median_best_loss_iteration": 212
+  },
+  "loss_tracking": {
+    "n_rows": 5575,
+    "best_mean_valid_loss": 0.5418946818840431,
+    "best_mean_valid_loss_iteration": 223,
+    "artifacts": {
+      "cv_loss_history_csv": "workspace/models/xgb_run/xgb_cv_loss_history.csv",
+      "cv_loss_summary_by_iteration_csv": "workspace/models/xgb_run/xgb_cv_loss_summary_by_iteration.csv",
+      "cv_loss_curves_png": "workspace/models/xgb_run/xgb_cv_loss_curves.png",
+      "cv_loss_summary_txt": "workspace/models/xgb_run/xgb_cv_loss_summary.txt"
+    }
+  },
+  "shap": {
+    "enabled": true,
+    "model_output": "raw",
+    "oof_max_rows_per_fold": 3000,
+    "background_max_rows": 256,
+    "interaction_max_rows_per_fold": 400,
+    "summary_max_display": 20,
+    "top_global_features": [
+      "scs",
+      "scs_t-1",
+      "scs_t-2",
+      "months_since_calving",
+      "age",
+      "milk_t-2",
+      "milk",
+      "milk_t-1",
+      "ec_t-2",
+      "ec"
+    ],
+    "top_interaction_pairs": [
+      {
+        "feature_1": "scs",
+        "feature_2": "scs_t-1",
+        "mean_abs_interaction": 0.06861479083306622
+      },
+      {
+        "feature_1": "scs",
+        "feature_2": "scs_t-2",
+        "mean_abs_interaction": 0.06233771031845099
+      },
+      {
+        "feature_1": "scs_t-1",
+        "feature_2": "scs_t-2",
+        "mean_abs_interaction": 0.037648444014549025
+      },
+      {
+        "feature_1": "months_since_calving",
+        "feature_2": "month_sin",
+        "mean_abs_interaction": 0.024623030388492045
+      },
+      {
+        "feature_1": "months_since_calving",
+        "feature_2": "month_cos",
+        "mean_abs_interaction": 0.01873194616341352
+      },
+      {
+        "feature_1": "milk",
+        "feature_2": "milk_t-2",
+        "mean_abs_interaction": 0.01683903522324108
+      },
+      {
+        "feature_1": "age",
+        "feature_2": "ec_t-2",
+        "mean_abs_interaction": 0.012971643363092153
+      },
+      {
+        "feature_1": "ec",
+        "feature_2": "age",
+        "mean_abs_interaction": 0.012291672654927243
+      },
+      {
+        "feature_1": "months_since_calving",
+        "feature_2": "milk_t-1",
+        "mean_abs_interaction": 0.010758781688511954
+      },
+      {
+        "feature_1": "milk",
+        "feature_2": "months_since_calving",
+        "mean_abs_interaction": 0.010665118974505458
+      }
+    ],
+    "artifacts": {
+      "shap_global_csv": "workspace/models/xgb_run/xgb_shap_global.csv",
+      "shap_global_txt": "workspace/models/xgb_run/xgb_shap_global.txt",
+      "shap_interaction_pairs_csv": "workspace/models/xgb_run/xgb_shap_interaction_pairs.csv",
+      "shap_interaction_matrix_csv": "workspace/models/xgb_run/xgb_shap_interaction_matrix.csv",
+      "shap_beeswarm_png": "workspace/models/xgb_run/xgb_shap_beeswarm.png",
+      "shap_bar_png": "workspace/models/xgb_run/xgb_shap_bar.png"
+    }
+  },
+  "metrics_mean_std": {
+    "accuracy": {
+      "mean": 0.693775267223853,
+      "std": 0.006539108821935704
+    },
+    "precision": {
+      "mean": 0.7852185916508705,
+      "std": 0.010321068732976212
+    },
+    "recall": {
+      "mean": 0.53360243301165,
+      "std": 0.011857444145758355
+    },
+    "specificity": {
+      "mean": 0.8539481833909616,
+      "std": 0.009360666878129064
+    },
+    "f1": {
+      "mean": 0.6353180989361821,
+      "std": 0.009388068874901869
+    },
+    "mcc": {
+      "mean": 0.409173418102597,
+      "std": 0.013382698057677405
+    },
+    "pr_auc": {
+      "mean": 0.8044734538943951,
+      "std": 0.005214078813732928
+    },
+    "roc_auc": {
+      "mean": 0.7596494189249497,
+      "std": 0.0061366916783506
+    },
+    "tp": {
+      "mean": 1085.24,
+      "std": 24.085403601905174
+    },
+    "tn": {
+      "mean": 1736.76,
+      "std": 19.059730673158352
+    },
+    "fp": {
+      "mean": 297.04,
+      "std": 19.03610604439189
+    },
+    "fn": {
+      "mean": 948.56,
+      "std": 24.14035349092193
+    },
+    "fit_seconds": {
+      "mean": 4.010270824432373,
+      "std": 0.8845608934007336
+    },
+    "predict_seconds": {
+      "mean": 0.006860113143920899,
+      "std": 0.000514001874454922
+    },
+    "explain_seconds": {
+      "mean": 4.929672536849975,
+      "std": 1.008122353232432
+    },
+    "fold_total_seconds": {
+      "mean": 8.94680347442627,
+      "std": 1.1527877671686537
+    },
+    "fold_rss_avg_mb": {
+      "mean": 509.2515470808905,
+      "std": 4.605407421376714
+    },
+    "fold_rss_peak_mb": {
+      "mean": 512.29890625,
+      "std": 3.6275171980481935
+    },
+    "train_loss_last": {
+      "mean": 0.49830993056612227,
+      "std": 0.0015652966177308462
+    },
+    "valid_loss_last": {
+      "mean": 0.5418946818840432,
+      "std": 0.005228145739318825
+    },
+    "train_loss_min": {
+      "mean": 0.49830993056612227,
+      "std": 0.0015652966177308462
+    },
+    "valid_loss_min": {
+      "mean": 0.5416839562608403,
+      "std": 0.00521276072443059
+    },
+    "train_loss_at_best_valid": {
+      "mean": 0.5017101778167598,
+      "std": 0.00401446994136901
+    },
+    "best_loss_iteration": {
+      "mean": 208.12,
+      "std": 16.694110738021756
+    },
+    "n_loss_iterations": {
+      "mean": 223.0,
+      "std": 0.0
+    }
+  },
+  "split_distribution_summary": {
+    "train_pos_rate": {
+      "mean": 0.5000000000000001,
+      "std": 1.9835819075891156e-05,
+      "min": 0.49996927048122425,
+      "max": 0.5000307295187757
+    },
+    "valid_pos_rate": {
+      "mean": 0.5,
+      "std": 7.935790808557152e-05,
+      "min": 0.4998770592574379,
+      "max": 0.5001229407425621
+    },
+    "total_id_overlap": 0
+  },
+  "cost_summary": {
+    "cpu_count": 12,
+    "cpu_process_seconds": 1812.42,
+    "ram_avg_mb": 520.517364007388,
+    "ram_peak_mb": 644.171875,
+    "ram_min_mb": 311.32421875,
+    "ram_last_mb": 643.515625,
+    "ram_monitor_samples": 2098,
+    "fit_seconds_per_fold": {
+      "mean": 4.010270824432373,
+      "std": 0.8845608934007336
+    },
+    "predict_seconds_per_fold": {
+      "mean": 0.006860113143920899,
+      "std": 0.000514001874454922
+    },
+    "explain_seconds_per_fold": {
+      "mean": 4.929672536849975,
+      "std": 1.008122353232432
+    },
+    "fold_total_seconds": {
+      "mean": 8.94680347442627,
+      "std": 1.1527877671686537
+    },
+    "fold_rss_avg_mb": {
+      "mean": 509.2515470808905,
+      "std": 4.605407421376714
+    },
+    "fold_rss_peak_mb": {
+      "mean": 512.29890625,
+      "std": 3.6275171980481935,
+      "max": 524.59375
+    },
+    "train_rows_per_second": {
+      "mean": 4285.403205433311,
+      "std": 1286.6543703898635
+    },
+    "predict_rows_per_second": {
+      "mean": 596170.1314903446,
+      "std": 45122.61791615858
+    },
+    "final_fit_seconds": 5.287044048309326,
+    "total_cv_fit_seconds": 100.25677061080933,
+    "total_wall_clock_seconds": 437.77168369293213,
+    "explainability_fraction_of_wall_clock": 0.2815207515972992,
+    "artifact_sizes_mb": {
+      "model": 0.2795095443725586,
+      "cv_metrics": 0.010354995727539062,
+      "cv_split_distributions_csv": 0.0017681121826171875,
+      "cv_split_distributions_txt": 0.0027627944946289062,
+      "cv_loss_history_csv": 0.2548255920410156,
+      "cv_loss_summary_by_iteration_csv": 0.01926708221435547,
+      "cv_loss_summary_txt": 0.00023746490478515625,
+      "cv_loss_curves_png": 0.08370685577392578,
+      "feature_ranking_csv": 0.0025577545166015625,
+      "feature_ranking_txt": 0.002979278564453125,
+      "training_report": 0.0027055740356445312,
+      "training_summary_json": 0.010499954223632812,
+      "selected_params_json": 6.4849853515625e-05,
+      "final_refit_params_json": 6.4849853515625e-05,
+      "grid_search_results_csv": null,
+      "shap_global_csv": 0.0023908615112304688,
+      "shap_global_txt": 0.0026578903198242188,
+      "shap_interaction_pairs_csv": 0.0018138885498046875,
+      "shap_interaction_matrix_csv": 0.010236740112304688,
+      "shap_beeswarm_png": 0.22231483459472656,
+      "shap_bar_png": 0.13236045837402344
+    },
+    "artifacts_total_size_mb": 1.0430793762207031
+  },
+  "runtime_seconds": {
+    "final_fit_seconds": 5.287044048309326,
+    "total_cv_fit_seconds": 100.25677061080933,
+    "total_wall_clock_seconds": 437.77168369293213,
+    "cpu_process_seconds": 1812.42
+  },
+  "artifacts": {
+    "model": "workspace/models/xgb_run/xgb_model.pkl",
+    "cv_metrics": "workspace/models/xgb_run/xgb_cv_metrics.csv",
+    "cv_split_distributions_csv": "workspace/models/xgb_run/xgb_cv_split_distributions.csv",
+    "cv_split_distributions_txt": "workspace/models/xgb_run/xgb_cv_split_distributions.txt",
+    "cv_loss_history_csv": "workspace/models/xgb_run/xgb_cv_loss_history.csv",
+    "training_report": "workspace/models/xgb_run/xgb_training_report.txt",
+    "feature_ranking_csv": "workspace/models/xgb_run/xgb_feature_ranking.csv",
+    "feature_ranking_txt": "workspace/models/xgb_run/xgb_feature_ranking.txt",
+    "selected_params_json": "workspace/models/xgb_run/xgb_selected_params.json",
+    "final_refit_params_json": "workspace/models/xgb_run/xgb_final_refit_params.json",
+    "grid_search_results_csv": null,
+    "cv_loss_summary_by_iteration_csv": "workspace/models/xgb_run/xgb_cv_loss_summary_by_iteration.csv",
+    "cv_loss_curves_png": "workspace/models/xgb_run/xgb_cv_loss_curves.png",
+    "cv_loss_summary_txt": "workspace/models/xgb_run/xgb_cv_loss_summary.txt",
+    "shap_global_csv": "workspace/models/xgb_run/xgb_shap_global.csv",
+    "shap_global_txt": "workspace/models/xgb_run/xgb_shap_global.txt",
+    "shap_interaction_pairs_csv": "workspace/models/xgb_run/xgb_shap_interaction_pairs.csv",
+    "shap_interaction_matrix_csv": "workspace/models/xgb_run/xgb_shap_interaction_matrix.csv",
+    "shap_beeswarm_png": "workspace/models/xgb_run/xgb_shap_beeswarm.png",
+    "shap_bar_png": "workspace/models/xgb_run/xgb_shap_bar.png"
+  }
+}
