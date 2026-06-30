@@ -1,0 +1,2 @@
+candidate_id,selection_metric,selection_mean,selection_std,fit_seconds_mean,fit_seconds_std,epochs_used_mean,valid_loss_last_mean,valid_loss_min_mean,stopped_early_fraction,params_json
+1,mcc,0.40050435933011,0.01380963473820976,15.384253005981446,1.3257757905568865,18.0,0.5529916195732955,0.5513413066446202,0.0,"{""early_stopping_min_delta"": 0.0, ""early_stopping_patience"": 30, ""enable_early_stopping"": true, ""epochs"": 18, ""hidden_size"": 32, ""learning_rate"": 0.001, ""restore_best_weights"": true}"

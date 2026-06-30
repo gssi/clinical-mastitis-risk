@@ -1,0 +1,12 @@
+GRU CV LOSS REPORT
+
+- rows: 450
+- max_epoch: 18
+- early_stopping_triggered: False
+- early_stopping_patience: 30
+- early_stopping_min_delta: 0.000000
+- restore_best_weights: True
+- overall_train_loss_last: 0.533131
+- overall_train_loss_min: 0.528521
+- overall_valid_loss_last: 0.548082
+- overall_valid_loss_min: 0.541196
