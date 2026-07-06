@@ -32,7 +32,7 @@ PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/diseases_s
   --input-cf-ids workspace/data/database/cf/processed/cf_ids.parquet \
   --output-parquet workspace/data/database/trattamenti/processed/trat_agg.parquet \
   --output-coppie-parquet workspace/data/database/trattamenti/processed/coppie_trat.parquet \
-  --diagnosis MAMMARIE \
+  --diagnosis <diagnosis_name> \
   --chunksize 100000
 
 
@@ -73,5 +73,5 @@ PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/dataset_bu
   --join ana=workspace/data/database/anag/processed/ana_agg.parquet \
   --keys ana:id \
   --how ana:inner \
-  --drop-columns Marca,day_x,day_y,day,same_day_records \
+  --drop-columns <col1>,<col2>,<col3> \
   --output-parquet workspace2/data/db_modeling/shared/merged_dataset.parquet
