@@ -57,11 +57,11 @@ clinical_risk_classification/
 │       └── training.py                                 # Trains RNN/LSTM/GRU models and provides classification results
 │
 ├── workspace/                                          # User-defined working directory 
-│   ├── data/                                           # Input and processed datasets
-│   │   ├── db_modeling/                                # Input and processed data for modeling branches
-│   │   │   ├── dl/                                     # Input and processed data for DL branch
-│   │   │   ├── ml/                                     # Input and processed data for ML branch
-│   │   │   ├── shared/                                 # Input and processed data common to both branches
+│   ├── data/                                           # Input and processed datasets (not included)
+│   │   ├── db_modeling/                                # Input and processed data for modeling branches (not included)
+│   │   │   ├── dl/                                     # Input and processed data for DL branch (not included)
+│   │   │   ├── ml/                                     # Input and processed data for ML branch (not included)
+│   │   │   ├── shared/                                 # Input and processed data common to both branches (not included)
 │   ├── artifacts/                                      # Schemas, ids, metadata, fitted imputer
 │   ├── logs/                                           # Reports and logs
 │   └── models/                                         # Classification results and hyperparameter files
