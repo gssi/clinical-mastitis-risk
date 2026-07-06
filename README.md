@@ -131,9 +131,6 @@ The full pipeline is executed to ensure that both models are trained and evaluat
 7. ML branch → `command_lines/commands_ml.txt`
 8. DL branch → `command_lines/commands_dl.txt`
 
-In the workspace, temporal representations for both ML and DL are provided. The user could use them directly for ML and/or DL branch.
-
-
 
 
 
