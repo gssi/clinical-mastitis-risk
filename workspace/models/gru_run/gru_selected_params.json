@@ -1,9 +1,0 @@
-{
-  "early_stopping_min_delta": 0.0,
-  "early_stopping_patience": 30,
-  "enable_early_stopping": true,
-  "epochs": 18,
-  "hidden_size": 32,
-  "learning_rate": 0.001,
-  "restore_best_weights": true
-}

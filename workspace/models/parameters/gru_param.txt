@@ -1,5 +1,0 @@
-# GRU parameters
-
-epochs = 18
-hidden_size = 32
-learning_rate = 0.001
