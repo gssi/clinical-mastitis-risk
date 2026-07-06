@@ -16,7 +16,6 @@ from collections import defaultdict
 
 # Global variables 
 
-TARGET_DIAGNOSIS = "MAMMARIE"
 RENAME_MAP = {"CAPO_IDENTIFICATIVO": "Marca", "TIPODIAGNOSI_CODICE": "diagnosis", "TRAT_DT_INIZIO_parsed": "t_date","giorno": "day", "mese": "month", "anno": "year"}
 
 # Support functions
@@ -223,7 +222,7 @@ def parse_args():
     parser.add_argument("--input-cf-ids", type=Path, required=True, help="Path to CF IDs parquet.")
     parser.add_argument("--output-parquet", type=Path, required=True, help="Path to output parquet.")
     parser.add_argument("--output-coppie-parquet", type=Path, required=True, help="Path to output coppie parquet.")
-    parser.add_argument("--diagnosis", type=str, default=TARGET_DIAGNOSIS, help="Diagnosis code to keep.")
+    parser.add_argument("--diagnosis", type=str, required=True, help="Diagnosis code to keep.")
     parser.add_argument("--keep-all-years", action="store_true", help="Disable the year > 2019 filter.")
     parser.add_argument("--chunksize", type=int, default=200_000, help="CSV chunk size.")
     return parser.parse_args()
