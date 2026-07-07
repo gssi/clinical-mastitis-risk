@@ -24,14 +24,6 @@ PYTHONPATH=. python3 workflow/data_preprocessing/imputation.py \
   --write-report \
   --report-path workspace2/logs/imputation_report.txt
 
-(x prediction)
-
-PYTHONPATH=. python3 workflow/data_preprocessing/imputation.py \
-  --mode transform \
-  --input-path workspace2/data/db_prediction/shared/merged_transformed.parquet \
-  --output-path workspace2/data/db_prediction/shared/merged_imputed.parquet \
-  --model-path workspace2/artifacts/imputer.pkl
-
 
 ### TEMPORAL CONSTRUCTION ###
 
