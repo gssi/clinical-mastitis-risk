@@ -21,7 +21,7 @@ The implementation reflects the methodology described in the accompanying paper 
 
 ## 2. Folder Structure
 
-The repository is organized as a modular pipeline, where each component corresponds to a specific step of the workflow. Components can be executed independently or combined into an end-to-end process.
+The repository is organized as a modular workflow, where each component corresponds to a specific step of the approach. Components can be executed independently or combined into an end-to-end process. Moreover, the workspace folder is mentioned for completeness, but it is not included in this repository.
 
 ```text
 clinical_risk_classification/
@@ -120,7 +120,7 @@ PYTHONPATH=. python3 <script_path> [arguments]
 
 ### Execution for controlled comparison between ML and DL
 
-The full pipeline is executed to ensure that both models are trained and evaluated on the same subject–time instances. 
+The full pipeline is executed to ensure that both models are trained and evaluated on the same subject–time instances. For each step, the set of command lines used is provided:
 
 1. Data construction → `command_lines/commands_data_construction.txt`
 2. Transformation → `command_lines/commands_data_preprocessing.txt`
