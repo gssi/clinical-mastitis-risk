@@ -32,7 +32,7 @@ PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/diseases_s
   --input-cf-ids workspace/data/database/cf/processed/cf_ids.parquet \
   --output-parquet workspace/data/database/trattamenti/processed/trat_agg.parquet \
   --output-coppie-parquet workspace/data/database/trattamenti/processed/coppie_trat.parquet \
-  --diagnosis <diagnosis_name> \
+  --diagnosis <disease_name> \
   --chunksize 100000
 
 
