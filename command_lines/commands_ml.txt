@@ -1,11 +1,11 @@
 ### LAGGED TABULAR ###
 
 PYTHONPATH=. python3 workflow/ml_process/lagged_tabular_construction.py \
-  --input-long-path workspace2/data/db_modeling/shared/merged_imputed.parquet \
-  --anchors-path workspace2/data/db_modeling/shared/shared_final_anchors.parquet \
-  --output-path workspace2/data/db_modeling/ml/lagged.parquet \
-  --wide-schema-path workspace2/artifacts/lagged_schema.json \
-  --ml-meta-path workspace2/logs/ml_representation_meta.json \
+  --input-long-path workspace/data/db_modeling/shared/merged_imputed.parquet \
+  --anchors-path workspace/data/db_modeling/shared/shared_final_anchors.parquet \
+  --output-path workspace/data/db_modeling/ml/lagged.parquet \
+  --wide-schema-path workspace/artifacts/lagged_schema.json \
+  --ml-meta-path workspace/logs/ml_representation_meta.json \
   --lag-steps 1,2 \
   --target-col disease \
   --lag-variables scs,milk,fat,protein,lactose,ec \
@@ -15,12 +15,12 @@ PYTHONPATH=. python3 workflow/ml_process/lagged_tabular_construction.py \
 
 ### TRAINER ML (WITH GRID SEARCH)
 PYTHONPATH=. python3 workflow/ml_process/training.py \
-  --input-path workspace2/data/db_modeling/ml/lagged.parquet \
-  --schema-path workspace2/artifacts/lagged_schema.json \
+  --input-path workspace/data/db_modeling/ml/lagged.parquet \
+  --schema-path workspace/artifacts/lagged_schema.json \
   --hparams-path workspace/models/parameters/grid_search/lgbm_param.txt \
   --model lgbm \
-  --output-dir workspace2/models/lgbm_run \
-  --ids-path workspace2/artifacts/shared_final_ids.parquet \
+  --output-dir workspace/models/lgbm_run \
+  --ids-path workspace/artifacts/shared_final_ids.parquet \
   --target-col disease \
   --id-col id \
   --n-splits 5 \
@@ -32,12 +32,12 @@ PYTHONPATH=. python3 workflow/ml_process/training.py \
   
 ### TRAINING ML (WITH EXPLAINABILITY)
 PYTHONPATH=. python3 workflow/ml_process/training.py \
-  --input-path workspace2/data/db_modeling/ml/lagged.parquet \
-  --schema-path workspace2/artifacts/lagged_schema.json \
-  --hparams-path workspace2/models/lgbm_run/lgbm_final_refit_params.json \
+  --input-path workspace/data/db_modeling/ml/lagged.parquet \
+  --schema-path workspace/artifacts/lagged_schema.json \
+  --hparams-path workspace/models/lgbm_run/lgbm_final_refit_params.json \
   --model lgbm \
-  --output-dir workspace2/models/lgbm_run \
-  --ids-path workspace2/artifacts/shared_final_ids.parquet \
+  --output-dir workspace/models/lgbm_run \
+  --ids-path workspace/artifacts/shared_final_ids.parquet \
   --target-col disease \
   --id-col id \
   --n-splits 5 \
