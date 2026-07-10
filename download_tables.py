@@ -215,11 +215,10 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
+## COMMAND LINES
 
-### MODELING
-
-# Per conducibilità: python3 download_tables.py --base-url https://opendata.leo-italy.eu/leo-api/public/ACF --code ACF_1097 --time 2019 2024 --output-dir db_modeling/ce
-# Per lattosio: python3 download_tables.py --base-url https://opendata.leo-italy.eu/leo-api/public/ACF --code ACF_1007 --time 2019 2024 --output-dir db_modeling/latt
-# Per cf: python3 download_tables.py --base-url https://opendata.leo-italy.eu/leo-api/public/CFL --code CFL --time 2019 2024 --output-dir db_modeling/cf
-# Per parto: python3 download_tables.py --base-url https://opendata.leo-italy.eu/leo-api/public/PA --code PA --time 2019 2024 --output-dir db_modeling/parti
-# Per anagrafica: python3 download_tables.py --base-url https://opendata.leo-italy.eu/leo-api/public/ANA --code ANA --time 2018 2023 --output-dir db_modeling/anag
+# Electrical conductivity : python3 download_tables.py --base-url https://opendata.leo-italy.eu/leo-api/public/ACF --code ACF_1097 --time 2019 2024 --output-dir workspace/data/database/ce
+# Lactose: python3 download_tables.py --base-url https://opendata.leo-italy.eu/leo-api/public/ACF --code ACF_1007 --time 2019 2024 --output-dir workspace/data/database/latt
+# Functional check: python3 download_tables.py --base-url https://opendata.leo-italy.eu/leo-api/public/CFL --code CFL --time 2019 2024 --output-dir workspace/data/database/cf
+# Calving: python3 download_tables.py --base-url https://opendata.leo-italy.eu/leo-api/public/PA --code PA --time 2019 2024 --output-dir workspace/data/database/parti
+# Demography: python3 download_tables.py --base-url https://opendata.leo-italy.eu/leo-api/public/ANA --code ANA --time 2018 2023 --output-dir workspace/data/database/anag
