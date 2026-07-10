@@ -365,6 +365,7 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
+## COMMAND LINE
 
 """
 python3 select_features.py \
