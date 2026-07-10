@@ -189,10 +189,10 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
-# MODELING
+# COMMAND LINES
 
-# ce: python3 merge_tables.py --input-dir db_modeling/ce --output-dir db_modeling/ce/merged --code ACF_1097 --time 2019 2024 --output-file ce.csv
-# latt: python3 merge_tables.py --input-dir db_modeling/latt --output-dir db_modeling/latt/merged --code ACF_1007 --time 2019 2024 --output-file latt.csv
-# cf: python3 merge_tables.py --input-dir db_modeling/cf --output-dir db_modeling/cf/merged --code CFL --time 2019 2024 --output-file cf.csv
-# parti: python3 merge_tables.py --input-dir db_modeling/parti --output-dir db_modeling/parti/merged --code PA --time 2019 2024 --output-file parti.csv
-# anag: python3 merge_tables.py --input-dir db_modeling/anag --output-dir db_modeling/anag/merged --code ANA --time 2018 2023 --output-file anag.csv
+# Electrical conductivity: python3 merge_tables.py --input-dir workspace/data/database/ce --output-dir workspace/data/database/ce/merged --code ACF_1097 --time 2019 2024 --output-file ce.csv
+# Lactose: python3 merge_tables.py --input-dir workspace/data/database/latt --output-dir workspace/data/database/latt/merged --code ACF_1007 --time 2019 2024 --output-file latt.csv
+# Functional check: python3 merge_tables.py --input-dir workspace/data/database/cf --output-dir workspace/data/database/cf/merged --code CFL --time 2019 2024 --output-file cf.csv
+# Calving: python3 merge_tables.py --input-dir workspace/data/database/parti --output-dir workspace/data/database/parti/merged --code PA --time 2019 2024 --output-file parti.csv
+# Demography: python3 merge_tables.py --input-dir workspace/data/database/anag --output-dir workspace/data/database/anag/merged --code ANA --time 2018 2023 --output-file anag.csv
