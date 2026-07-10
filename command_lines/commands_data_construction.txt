@@ -15,7 +15,7 @@ PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/lactose_st
   --chunksize 100000
 
 
-### PROCESS EC ###
+### PROCESS ELECTRICAL CONDUCTIVITY ###
 
 PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/ele_conductivity_step.py \
   --input-ec-csv workspace/data/database/ce/merged/ce.csv \
