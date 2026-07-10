@@ -21,7 +21,7 @@ The implementation reflects the methodology described in the accompanying paper 
 
 ## 2. Folder Structure
 
-The repository is organized as a modular workflow, where each component corresponds to a specific step of the approach. Components can be executed independently or combined into an end-to-end process. Moreover, the workspace folder is mentioned for completeness, but it is not included in this repository.
+The repository is organized as a modular workflow, where each component corresponds to a specific step of the approach. Components can be executed independently or combined into an end-to-end process.
 
 ```text
 clinical_risk_classification/
