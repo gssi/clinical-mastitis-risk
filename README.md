@@ -110,7 +110,8 @@ PYTHONPATH=. python3 <script_path> [arguments]
 
 ### Execution for controlled comparison between ML and DL
 
-The full pipeline is executed to ensure that both models are trained and evaluated on the same subject–time instances. For each step, the set of command lines used is provided:
+The full pipeline is executed to ensure that both models are trained and evaluated on the same subject–time instances. For each step, the set of command lines used is provided below. 
+NOTE: before the data construction step, download (download_tables.py) and merge (merge_tables.py) of tables from LEO are required. The command lines for these steps are reported in the files themselves.
 
 1. Data construction → `command_lines/commands_data_construction.txt`
 2. Transformation → `command_lines/commands_data_preprocessing.txt`
