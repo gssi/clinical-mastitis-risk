@@ -24,7 +24,7 @@ PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/ele_conduc
   --chunksize 100000
 
 
-### PROCESS DISEASE ###
+### PROCESS DISEASE (this comes from private dataset) ###
 
 PYTHONPATH=. python3 workflow/data_preprocessing/dataset_construction/diseases_step.py \
   --input-treatments-csv workspace/data/database/trattamenti/trattamenti.csv \
